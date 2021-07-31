@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +15,119 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.main {
+  display: flex;
+  margin: 1% 5%;
+}
+
+.main__page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main__photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+}
+
+.main__photos-item {
+  display: flex;
+  text-align: center;
+  box-shadow: -2px 5px 12px -2px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  margin: 10px;
+}
+
+.main__photos-item p {
+  position: absolute;
+  cursor: pointer;
+  margin-top: 120px;
+  margin-left: 12px;
+}
+
+.main__photos-item img {
+  border-radius: 15px;
+}
+
+nav {
+  margin: 15px 0;
+}
+
+.main__profile-hide {
+  display: none;
+}
+
+.main__profile-show {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, .3);
+  animation: fade .5s;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+}
+
+.main__profile-content {
+  width: 90vw;
+  height: 90vh;
+  background: white;
+  border-radius: 25px;
+}
+
+.main__profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 3%;
+}
+
+.main__profile-header h1 {
+  margin: 1%;
+}
+
+.main__profile-header svg {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.main__profile-show button {
+  width: 200px;
+  height: 100px;
+}
+
+.main__profile-albums {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 4% !important;
+}
+
+.main__profile-album {
+  position: relative;
+  width: 20%;
+  margin-top: 2%;
+}
+
+.main__profile-album img {
+  width: 90%;
+  cursor: pointer;
+}
+
+.main__profile-album p {
+  position: absolute;
+  top: 90%;
+}
+
+@keyframes fade {
+  0% {opacity: .1;}
+  100% {opacity: 1;}
 }
