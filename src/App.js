@@ -10,6 +10,7 @@ export default function App() {
   const [page, setPage] = useState(1);
   const [albums, setAlbums] = useState([]);
   const [profileModificator, setProfileModificator] = useState('main__profile-hide');
+  const [albumPhotosModificator, setAlbumPhotosModificator] = useState('main__profile-photos-hide')
   const openProfile = (event, profileModificator) => {
     setProfileModificator('main__profile-show');
   };
@@ -19,6 +20,12 @@ export default function App() {
   const handleChange = (event, page) => {
     setPage(page);
   };
+  const openAlbumPhotos = (event, albumPhotosModificator) => {
+    setAlbumPhotosModificator('main__profile-photos-show');
+  }
+  const closeAlbumPhotos = (event, albumPhotosModificator) => {
+    setAlbumPhotosModificator('main__profile-photos-hide');
+  }
 
   useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/photos')
@@ -53,7 +60,7 @@ export default function App() {
   function Album(props) {
     return (
       <div className="main__profile-album">
-        <img src="https://image.flaticon.com/icons/png/512/716/716784.png"/>
+        <img onClick={openAlbumPhotos}src="https://image.flaticon.com/icons/png/512/716/716784.png"/>
         <p>Альбом №{props.albumId}</p>
       </div>
     )
@@ -73,6 +80,18 @@ export default function App() {
                   .map(album => (<Album albumId={album.id}/>))
             }
           </Typography>
+          <div className={albumPhotosModificator}>
+            <div className="main__album-header">
+              <h1>Альбом №1</h1>
+              <CloseIcon onClick={closeAlbumPhotos}/>
+            </div>
+            <hr></hr>
+            <Typography className="main__album-photos"> {
+                photos.filter(photo => photo.albumId === 2)
+                      .map(photo => (<Photo url={photo.thumbnailUrl} author={photo.userId}/>))
+              }
+            </Typography>
+          </div>
         </div>
       </div>
     )

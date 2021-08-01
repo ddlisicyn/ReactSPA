@@ -37,6 +37,7 @@ code {
 
 .main__photos-item {
   display: flex;
+  flex-direction: column;
   text-align: center;
   box-shadow: -2px 5px 12px -2px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
@@ -44,10 +45,7 @@ code {
 }
 
 .main__photos-item p {
-  position: absolute;
   cursor: pointer;
-  margin-top: 120px;
-  margin-left: 12px;
 }
 
 .main__photos-item img {
@@ -108,13 +106,13 @@ nav {
 .main__profile-albums {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 4% !important;
+  justify-content: center;
 }
 
 .main__profile-album {
   position: relative;
-  width: 20%;
-  margin-top: 2%;
+  width: 16%;
+  margin: 1% 1.5%;
 }
 
 .main__profile-album img {
@@ -122,9 +120,42 @@ nav {
   cursor: pointer;
 }
 
-.main__profile-album p {
+.main__profile-photos-hide {
+  display: none;
+}
+
+.main__profile-photos-show {
   position: absolute;
-  top: 90%;
+  top: 5%;
+  width: 90vw;
+  height: 90vh;
+  background: white;
+  border-radius: 25px;
+}
+
+.main__album-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 3%;
+}
+
+.main__album-header h1 {
+  margin: 1%;
+}
+
+.main__album-header svg {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.main__album-photos {
+  height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  justify-content: center;
 }
 
 @keyframes fade {
