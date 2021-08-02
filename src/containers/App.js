@@ -2,8 +2,7 @@ import React, { useEffect, useState} from 'react';
 import Typography from '@material-ui/core/Typography';
 import Pagination from '@material-ui/lab/Pagination';
 import { Photo } from '../components/Photo';
-import { Profile } from './Profile';
-
+import { Profile } from '../components/Profile';
 
 export default function App() {
   const [albums, setAlbums] = useState([]);

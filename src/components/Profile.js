@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
-import { Album } from '../components/Album';
-import { Photos } from '../components/Photos';
+import { Album } from './Album';
+import { Photos } from './Photos';
 
 export function Profile(props) {
   const [selectedAlbum, setSelectedAlbum] = useState(null);
