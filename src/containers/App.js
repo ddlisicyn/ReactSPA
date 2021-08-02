@@ -2,11 +2,8 @@ import './App.css';
 import React, { useEffect, useState} from 'react';
 import Typography from '@material-ui/core/Typography';
 import Pagination from '@material-ui/lab/Pagination';
-import CloseIcon from '@material-ui/icons/Close';
 import { Photo } from '../components/Photo';
-import { Album } from '../components/Album';
 import { Profile } from '../components/Profile';
-import { SettingsInputAntennaTwoTone } from '@material-ui/icons';
 
 
 export default function App() {
@@ -71,8 +68,9 @@ export default function App() {
         size="large" 
       />
       <Profile 
-        visible={!!selectedUser} 
-        albums={albums} 
+        profileVisible={!!selectedUser} 
+        albums={albums}
+        photos={data}
         onCloseClick={closeProfile} 
         userId={selectedUser}
       />
