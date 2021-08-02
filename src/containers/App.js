@@ -1,10 +1,8 @@
-import './App.css';
 import React, { useEffect, useState} from 'react';
 import Typography from '@material-ui/core/Typography';
 import Pagination from '@material-ui/lab/Pagination';
 import { Photo } from '../components/Photo';
 import { Profile } from '../components/Profile';
-
 
 export default function App() {
   const [albums, setAlbums] = useState([]);
@@ -70,9 +68,9 @@ export default function App() {
       <Profile 
         profileVisible={!!selectedUser} 
         albums={albums}
-        photos={data}
         onCloseClick={closeProfile} 
         userId={selectedUser}
+        data={data}
       />
     </div>
   );  

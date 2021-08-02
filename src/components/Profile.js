@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import { Album } from './Album';
-import { Photo } from './Photo';
+import { Photos } from './Photos';
 
 export function Profile(props) {
   const [selectedAlbum, setSelectedAlbum] = useState(null);
+  const data = props.data;
   const openPhotos = (albumId) => {
     setSelectedAlbum(albumId);
   };
@@ -25,22 +26,16 @@ export function Profile(props) {
             props.albums.filter(album => album.userId === props.userId)
                   .map(album => {
                     console.log(album);
-                    return (<Album albumId={album.id}/>)
-                  } )
+                    return (<Album albumId={album.id} handleClick={openPhotos}/>)
+                  }) 
             }
-          </Typography> 
-            {/* <div className={props.photosVisible ? 'main__profile-photos-show' : 'main__profile-photos-show'}>
-              <div className="main__album-header">
-                <h1>Альбом №1</h1>
-                <CloseIcon onClick={props.onCloseAlbumClick}/>
-              </div>
-              <hr></hr>
-              <Typography className="main__album-photos"> {
-                  props.photos.filter(photo => photo.albumId === props.albumId)
-                        .map(photo => (<Photo url={photo.thumbnailUrl} author={photo.userId}/>))
-                }
-              </Typography>
-            </div> */}
+            <Photos
+              photosVisible={!!selectedAlbum}
+              onCloseAlbumClick={closePhotos}
+              photos={data}
+              albumId={selectedAlbum}
+            /> 
+          </Typography>
         </div>
       </div>
     )
