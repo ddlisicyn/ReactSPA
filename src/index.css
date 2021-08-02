@@ -151,11 +151,15 @@ nav {
 }
 
 .main__album-photos {
-  height: 80vh;
+  height: 75vh;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
   justify-content: center;
+}
+
+.main__album-photos p {
+  font-size: 0;
 }
 
 @keyframes fade {

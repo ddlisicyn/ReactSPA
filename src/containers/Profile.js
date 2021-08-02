@@ -1,12 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
-import { Album } from './Album';
+import { Album } from '../components/Album';
+import { Photos } from '../components/Photos';
 
 export function Profile(props) {
+  const [selectedAlbum, setSelectedAlbum] = useState(null);
+  const data = props.data;
+  const openPhotos = (albumId) => {
+    setSelectedAlbum(albumId);
+  };
+  const closePhotos = () => {
+    setSelectedAlbum(null);
+  };
     return (
-      <div className={props.visible ? 'main__profile-show' : 'main__profile-hide'}>
+      <div className={props.profileVisible ? 'main__profile-show' : 'main__profile-hide'}>
         <div className="main__profile-content">
           <div className="main__profile-header">
             <h1>Автор №{props.userId}</h1>
@@ -17,29 +26,23 @@ export function Profile(props) {
             props.albums.filter(album => album.userId === props.userId)
                   .map(album => {
                     console.log(album);
-                    return (<Album albumId={album.id}/>)
-                  } )
+                    return (<Album albumId={album.id} handleClick={openPhotos}/>)
+                  }) 
             }
-          </Typography> 
-{/*           <div className={props.visible ? 'main__profile-photos-show' : 'main__profile-photos-show'}>
-              <div className="main__album-header">
-                <h1>Альбом №1</h1>
-                <CloseIcon onClick={props.onCloseAlbumClick}/>
-              </div>
-            <hr></hr>
-            <Typography className="main__album-photos"> {
-                photos.filter(photo => photo.albumId === 2)
-                      .map(photo => (<Photo url={photo.thumbnailUrl} author={photo.userId}/>))
-              }
-            </Typography>
-          </div> */}
+            <Photos
+              photosVisible={!!selectedAlbum}
+              onCloseAlbumClick={closePhotos}
+              photos={data}
+              albumId={selectedAlbum}
+            /> 
+          </Typography>
         </div>
       </div>
     )
   }
 
 Profile.propTypes = {
-    visible: PropTypes.bool,
+    profileVisible: PropTypes.bool,
     userId: PropTypes.number,
     onCloseClick: PropTypes.func,
     albums: PropTypes.array,
