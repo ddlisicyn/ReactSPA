@@ -6,7 +6,7 @@ Service https://jsonplaceholder.typicode.com provides some API.
 The task is to develop a site, on the main page of which to place all the photos provided by the API in the form of a grid. Under each photo there should be a link to the author, which leads to his profile, where you can see the author's albums and contacts. It should be possible to open the album and see the photo inside it.
 
 # Technology stack
-## This project was bootstrapped with Create React App.
+This project was bootstrapped with Create React App.
 - React (functional components w/ hooks)
 - JSX
 - Material UI
