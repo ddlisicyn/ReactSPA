@@ -12,7 +12,7 @@ This project was bootstrapped with Create React App.
 - Material UI
 - PropTypes
 - Babel
-- Adaptive css layout
+- Responsive css layout
 
 ## Available Scripts
 
