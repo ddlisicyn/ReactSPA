@@ -1,4 +1,4 @@
-# testReactSPA
+# ReactSPA
 
 # Explanation
 Service https://jsonplaceholder.typicode.com provides some API.
